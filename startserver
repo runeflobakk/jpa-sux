@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ./node_modules/reveal-md/bin/cli.js -w --disable-auto-open 
 
