@@ -2,5 +2,5 @@
 
 REVEAL_PORT=${PORT:-37777}
 echo "Reveal server port: ${REVEAL_PORT}"
-./node_modules/reveal-md/bin/cli.js -w --port ${REVEAL_PORT} --disable-auto-open
+./node_modules/reveal-md/bin/cli.js --port ${REVEAL_PORT} --disable-auto-open
 
