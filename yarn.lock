@@ -1098,7 +1098,7 @@ request@^2.69.0, request@^2.81.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
-reveal-md@0.3.0:
+reveal-md@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/reveal-md/-/reveal-md-0.3.0.tgz#5a1aa79f769e54981aa13c69b1ba4290605d8a71"
   dependencies:
