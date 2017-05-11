@@ -1,0 +1,11 @@
+{
+  "name": "jpa-tordentale",
+  "version": "1.0.0",
+  "description": "Lyntale til lansering av BEKK Tech Radar om hvorfor man skal avstå fra JPA/Hibernate",
+  "main": "index.html",
+  "author": "Rune Flobakk",
+  "license": "MIT",
+  "dependencies": {
+    "reveal-md": "^0.3.0"
+  }
+}
