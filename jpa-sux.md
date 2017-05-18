@@ -9,15 +9,41 @@ revealOptions:
 
 ---
 
-## JPA / Hibernate
+## Java Persistence API
 
-# _Avstå!_ <!-- .element: class="fragment" --> 
-
-
+# JPA
 
 ---
 
-## Hva er Hibernate?
+<!-- .slide: data-background="./img/hugging-kittens2.jpg" -->
+
+Note: presentasjon uten å fornærme noen
+
+---
+
+<!-- .slide: data-background="./img/catpunch2.jpg" -->
+
+Note: kan ta diskusjon etterpå
+
+---
+
+<!-- .slide: data-background="./img/raised-hands.jpg" -->
+
+
+Note: håndsopprekking
+- mange på Java-prosjekter med relasjonsdatabaser?
+- bruker dere JPA/Hibernate?
+- liker dere JPA/Hibernate?
+    - nei: ikke sant? Det er noe tøys!
+    - ja: å kom igjen a! Virkelig? Jeg tror dere lyver.
+
+---
+
+<!-- .slide: data-background="./img/blue-shirt-headscratch.jpg" -->
+
+# JPA?
+
+## Sånn helt enkelt forklart
 
 ---
 
@@ -25,7 +51,7 @@ revealOptions:
 
 Javaobjekter <!-- .element: class="fragment" data-fragment-index="2"--> 
 
-# Hibernate <!-- .element: class="fragment" data-fragment-index="1"--> 
+# JPA <!-- .element: class="fragment" data-fragment-index="1" style="background-image: url(./img/brickwall.jpg); background-size: cover;"--> 
 
 SQL og resultater <!-- .element: class="fragment" data-fragment-index="3"--> 
 
@@ -36,7 +62,7 @@ SQL og resultater <!-- .element: class="fragment" data-fragment-index="3"-->
 
 ## Impedance mismatch
 
-:fear: :scream:
+## 😨 😱
 
 
 
@@ -44,11 +70,21 @@ SQL og resultater <!-- .element: class="fragment" data-fragment-index="3"-->
 
 ---
 
-<!-- .slide: data-background="./img/most-interesting-man.jpg" -->
+<!-- .slide: data-background="./img/most-interesting-man2.jpg" -->
 
-## I don't always create Java programs,
+### I don't always create 
+### Java applications,
 
-## but when I do, I always use Hibernate
+### but when I do, 
+## I <em>always</em> use 
+# JPA
+
+
+---
+
+## Java Persistence API
+
+# Avstå! <!-- .element: class="fragment" --> 
 
 
 ---
@@ -61,6 +97,7 @@ public class Konto {
     ...
 }
 ```
+
 
 ---
 
@@ -85,3 +122,5 @@ public class Konto {
 
 }
 ```
+
+
