@@ -49,11 +49,11 @@ Note: håndsopprekking
 
 ## Applikasjonskode
 
-Javaobjekter <!-- .element: class="fragment" data-fragment-index="2"--> 
+Javaobjekter <!-- .element: class="fragment" data-fragment-index="3"--> 
 
 # JPA <!-- .element: class="fragment" data-fragment-index="1" style="background-image: url(./img/brickwall.jpg); background-size: cover;"--> 
 
-SQL og resultater <!-- .element: class="fragment" data-fragment-index="3"--> 
+SQL og resultater <!-- .element: class="fragment" data-fragment-index="2"--> 
 
 ## Database
 
@@ -62,7 +62,7 @@ SQL og resultater <!-- .element: class="fragment" data-fragment-index="3"-->
 
 ## Impedance mismatch
 
-## 😨 😱
+## 😨 😱 <!-- .element: class="fragment" data-fragment-index="1"--> 
 
 
 
@@ -84,7 +84,7 @@ SQL og resultater <!-- .element: class="fragment" data-fragment-index="3"-->
 
 ## Java Persistence API
 
-# Avstå! <!-- .element: class="fragment" --> 
+# Avstå!
 
 
 ---
@@ -123,4 +123,39 @@ public class Konto {
 }
 ```
 
+---
 
+## annotasjoner 
+
+# & <!-- .element: class="fragment" data-fragment-index="2" -->
+
+### suboptimal <!-- .element: class="fragment" data-fragment-index="2" --> <span style="font-size: 0.7em">og lite smidig</span> kode <!-- .element: class="fragment" data-fragment-index="2" -->
+
+---
+
+<!-- .slide: data-background="./img/boxer-sleeping.jpg" -->
+
+# JPA is lazy <!-- .element: style="padding-bottom: 1.2em" -->
+
+## I only fetch when you least expect it
+
+---
+
+### Alternativer?
+
+# SQL <!-- .element: class="fragment" data-fragment-index="2"--> 
+## Micro-ORMs       <!-- .element: class="fragment" data-fragment-index="3"--> 
+
+---
+
+<!-- .slide: data-background="./img/rainbow.jpg" -->
+
+### Alternativer?
+
+# SQL
+## Micro-ORMs
+
+---
+
+# Takk
+## for meg!
