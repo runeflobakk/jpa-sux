@@ -49,11 +49,11 @@ Note: håndsopprekking
 
 ## Applikasjonskode
 
-Javaobjekter <!-- .element: class="fragment" data-fragment-index="3"--> 
+↕️ Javaobjekter ↕️ <!-- .element: class="fragment" data-fragment-index="3"--> 
 
 # JPA <!-- .element: class="fragment" data-fragment-index="1" style="background-image: url(./img/brickwall.jpg); background-size: cover;"--> 
 
-SQL og resultater <!-- .element: class="fragment" data-fragment-index="2"--> 
+↕️ SQL og resultater ↕️  <!-- .element: class="fragment" data-fragment-index="2"--> 
 
 ## Database
 
@@ -143,7 +143,7 @@ public class Konto {
 
 ### Alternativer?
 
-# SQL <!-- .element: class="fragment" data-fragment-index="2"--> 
+# SQL               <!-- .element: class="fragment" data-fragment-index="2"--> 
 ## Micro-ORMs       <!-- .element: class="fragment" data-fragment-index="3"--> 
 
 ---
@@ -157,5 +157,6 @@ public class Konto {
 
 ---
 
-# Takk
-## for meg!
+## Java Persistence API
+
+# Avstå!
