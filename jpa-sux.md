@@ -6,6 +6,9 @@ revealOptions:
     transitionSpeed: fast    
 ---
 
+Note: 
+- Rune -> utvikler
+- Ikke _bare_ dødshipp tech -> traust og velkjent
 
 ---
 
@@ -13,27 +16,33 @@ revealOptions:
 
 # JPA
 
+Note: JPA
+- ev. Hibernate, mest utbredte impl.
+
 ---
 
 <!-- .slide: data-background="./img/hugging-kittens2.jpg" -->
 
-Note: presentasjon uten å fornærme noen
+Note: 
+- presentasjon uten å fornærme noen?
+- ingen grep for å unngå det
 
 ---
 
 <!-- .slide: data-background="./img/catpunch2.jpg" -->
 
-Note: kan ta diskusjon etterpå
+Note: 
+- slag, spark, ev. diskusjon etterpå
 
 ---
 
 <!-- .slide: data-background="./img/raised-hands.jpg" -->
 
 
-Note: håndsopprekking
-- mange på Java-prosjekter med relasjonsdatabaser?
+Note: Håndsopprekking
+- mange Java-prosjekter med DB?
 - bruker dere JPA/Hibernate?
-- liker dere JPA/Hibernate?
+- liker dere å bruke JPA?
     - nei: ikke sant? Det er noe tøys!
     - ja: å kom igjen a! Virkelig? Jeg tror dere lyver.
 
@@ -44,6 +53,11 @@ Note: håndsopprekking
 # JPA?
 
 ## Sånn helt enkelt forklart
+
+Note: **Hva** er JPA?
+- OO-data strukturelt ulikt DB-data, resultater fra DB
+- transformere til OO når data leses fra DB
+- transformere tilbake til DB ved lagring
 
 ---
 
@@ -58,6 +72,12 @@ Note: håndsopprekking
 ## Database
 
 
+Note:
+- JPA ligger "i mellom"
+- rammeverk
+- slippe å forholde seg til hvordan data repr. i DB
+- kun tenke på data i objektform
+
 ---
 
 ## Impedance mismatch
@@ -65,7 +85,12 @@ Note: håndsopprekking
 ## 😨 😱 <!-- .element: class="fragment" data-fragment-index="1"--> 
 
 
-
+Note: Skummel og pompøs techy betegnelse
+- skremme folk fra SQL, håndskrevet oversetting
+- "Vi har en mismatch, dere!"
+- flere millioner kodelinjer langt generisk rammeverk
+- 2017, komponentbaserte Web-rammeverk abstraherer HTTP -> feil
+- gjelder også DB-kommunikasjon
 
 
 ---
@@ -80,12 +105,24 @@ Note: håndsopprekking
 # JPA
 
 
+Note: JPA brukes på autopilot
+
+Men jeg mener, med hånden på hjertet...
+
 ---
 
 ## Java Persistence API
 
 # Avstå!
 
+Note: **JPA bør du avstå fra å ta inn i appen din!**
+
+- Nøkkelproblem: JPA fungerer greit til enkle case
+- Forførersk:
+    - tilfredsstillende med annotasjoner på enkle objekter
+    - magisk lagret og hentet frem igjen
+
+Snart ser klassene slik ut:
 
 ---
 
@@ -97,6 +134,11 @@ public class Konto {
     ...
 }
 ```
+
+Note: _Venter litt, ser raksjoner, snur meg_
+
+"Nei, jeg mener slik!"
+
 
 
 ---
@@ -123,6 +165,13 @@ public class Konto {
 }
 ```
 
+Note:
+- Skrekkeksempel: single source of truth, alt i domeneklassene
+- persistering: separat problemstilling
+- forretningslogikk hører hjemme i domenemodell
+
+JPA, paradoksalt: sterk binding mellom database og domenemodell og forretningslogikk
+
 ---
 
 ## annotasjoner 
@@ -131,13 +180,40 @@ public class Konto {
 
 ### suboptimal <!-- .element: class="fragment" data-fragment-index="2" --> <span style="font-size: 0.7em">og lite smidig</span> kode <!-- .element: class="fragment" data-fragment-index="2" -->
 
+Note: **Annotasjoner:**
+- hvordan objekter korresponderer til DB
+- andre tekniske detaljer
+
+**Designet på koden**
+- begrenset
+- JPA skal behandle og lese tilstand
+- trøblete å bruke språkfeatures
+
+
+- implisitt bundet til DB
+- vanskelig å resonnere ringvirkninger
+- domenemodell bør være endringsvillig!
+- svære entitetsklasser, vokst over tid
+    - subsett av tilstand i ulike kontekster
+    - egentlige grunnen til...
+
 ---
 
 <!-- .slide: data-background="./img/boxer-sleeping.jpg" -->
 
 # JPA is lazy <!-- .element: style="padding-bottom: 1.2em" -->
 
-## I only fetch when you least expect it
+## I only fetch when you least expect it 
+
+
+Note: **Lazy loading**
+- kan ikke populere opp all tilstand
+- fatalt: ytelse, minnebruk
+- anti-pattern: altomfattende "core" modell for alle kontekster
+    - lazyloading, teknikk med egne utfordringer
+    - for å beholde anti-patternet
+- savnet lazy-loading uten JPA?
+- utsette uthenting  ikke spør etter de før de trengs
 
 ---
 
@@ -145,6 +221,22 @@ public class Konto {
 
 # SQL               <!-- .element: class="fragment" data-fragment-index="2"--> 
 ## Micro-ORMs       <!-- .element: class="fragment" data-fragment-index="3"--> 
+
+Note: **Alternativer**
+
+- SQL rett i koden
+- egen kode som oversetter mellom DB og OO
+- utfordring: JDBC, gotchas
+    - Spring JDBC Template
+    - forenklende API over JDBC
+- full kontroll på spørringer
+- når ting brekker: ingen nøsting i annotasjoner -> genererte spørringer
+- nært forhold til DB-modell
+- vet hvilke og når spørringer gjøres
+- utnytte DaB-spesifikk funksjonalitet
+- alt eksplisitt i koden, isolert, enkelt å feilsøke
+
+- punkt om Micro-ORMer: "Vurder!". Anbefales!
 
 ---
 
@@ -155,8 +247,30 @@ public class Konto {
 # SQL
 ## Micro-ORMs
 
+
+Note: Micro-ORM forts:
+- lettvekt alt. til transformasjon mellom DB og OO
+
 ---
 
 ## Java Persistence API
 
 # Avstå!
+
+
+Note: **JPA**
+- greit til enkle case
+- avanserte relasjoner og spørringer: JPA "i veien"
+- streve med å få JPA til å gjøre spørringene man vil
+- uheldig tilnærming for:
+    - robust
+    - ytende
+    - endringsvillig
+- "denne gangen riktig", fristende i starten, enkel app
+- kjenne igjen følelsen
+- ikke verdt å dra inn komplekst og invaderende rammeverk, hjelper kun de enkle casene, kan fint løses med JDBC og SQL
+- utfordre litt etablerte "sannheter"
+
+- huk tak i meg. Både enig og dypt uenig i budskapet.
+
+**Takk for meg!**
