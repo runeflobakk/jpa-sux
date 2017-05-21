@@ -273,4 +273,10 @@ Note: **JPA**
 
 - huk tak i meg. Både enig og dypt uenig i budskapet.
 
-**Takk for meg!**
+
+
+---
+
+## 👋
+
+Note: **Takk for meg!**
