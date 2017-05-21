@@ -220,7 +220,7 @@ Note: **Lazy loading**
 ### Alternativer?
 
 # SQL               <!-- .element: class="fragment" data-fragment-index="2"--> 
-## Micro-ORMs       <!-- .element: class="fragment" data-fragment-index="3"--> 
+## Micro-ORM<!-- .element: class="fragment" data-fragment-index="3"--><span style="text-transform: lowercase">s</span> <!-- .element: class="fragment" data-fragment-index="3"--> 
 
 Note: **Alternativer**
 
@@ -245,7 +245,7 @@ Note: **Alternativer**
 ### Alternativer?
 
 # SQL
-## Micro-ORMs
+## Micro-ORM<span style="text-transform: lowercase">s</span>
 
 
 Note: Micro-ORM forts:
