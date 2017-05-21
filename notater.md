@@ -1,31 +1,5 @@
-
-
-
-
-
-
-
-
-
 JPA / Hibernate - avstå!
 =========================================
-
-Disposisjon
---------------------------------------
-
-0:00 - Innledende håndsopprekking, ikke noe spes. slideinnhold
-0:50 - Presentere meg selv og vise "splash"-slide: JPA/Hibernate ..... AVSTÅ!
-1:00 - kort om hva Hibernate er, og hva de skal løse
-2:00 - innledende raljering, dras inn på autopilot
-2:30 - vise "skrekkeksempel" for å illustrere kode med støyete JPA-annotasjoner
-2:50 - Hva er greia med lazy loading egentlig?
-4:00 - JPA sitt paradoks: fungerer bra for de helt enkle casene, ikke verdt å dra inn i en såpass kompleks avhengighet
-8:00 - Hvilke alternativer finnes? SQL (JDBC, Spring JdbcTemplate), Micro-ORM
-
-
-
-
-
 
 
 
@@ -56,17 +30,17 @@ Håndsopprekking:
 
 🔺
 Hva er JPA?
-Data i objektorientert kode (f.eks. Java) representeres strukturelt litt forskjellig i.f.t. hvordan de samme dataene representeres i en relasjonsdatabase, og spesielt hvordan man får data ut fra databasen i spørringer. For at en Java-applikasjon skal kunne behandle data i en database på en fornuftig måte må dataene transformeres når de leses opp fra databasen til hvordan man ønsker å ha de i minnet i applikasjonen, og likeledes må de oversettes tilbake til et database-vennlig format når man skal lagre de.
+Data i objektorientert kode (f.eks. Java) representeres strukturelt litt forskjellig i.f.t. hvordan de samme dataene representeres i en relasjonsdatabase, og spesielt hvordan man får data ut fra databasen i spørringer. For at en Java-applikasjon skal kunne behandle data fra en database på en fornuftig måte må dataene transformeres når de leses opp fra databasen til hvordan man ønsker å ha de i minnet i applikasjonen, og likeledes må de oversettes tilbake til et database-vennlig format når man skal lagre de.
 
 🔺
-JPA er kort fortalt noe som skal ligge "i mellom" 🔺 databasen din og Java-koden. Det er et rammeverk man inkluderer i applikasjonen som skal gjøre at man skal liksom slippe å forholde seg til hvordan data representeres i 🔺 rader og kolonner i en database, og kun trenge å tenke på data i objektform.
+JPA er kort fortalt noe som skal ligge "i mellom" 🔺 databasen din og Java-koden, og som gjør denne transformasjonen for deg. Det er et rammeverk man inkluderer i applikasjonen som skal gjøre at man skal liksom slippe å forholde seg til hvordan data representeres i 🔺 rader og kolonner i en database, og 🔺kun trenge å tenke på data i objektform.
 
 🔺
-Man har til og med assosiert et litt sånn skummel og pompøs techy betegnelse for å skremme folk vekk fra å skrive SQL og håndskrevet oversetting mellom resultatsett og objekter: **Impedance mismatch**
-🔺Vi har en mismatch dere! Dette trenger vi et flere millioner kodelinjer langt generisk rammeverk for å løse! Det er 2017 nå, og vi har bl.a. funnet ut at komponentbaserte Web-rammeverk som forsøker å abstrahere bort HTTP og request/response-flyten var et feilskjær. Det er på tide å innse at dette også gjelder database-kommunikasjon!
+Man har til og med assosiert et litt sånn skummel og pompøs techy betegnelse for denne forskjellen i hvordan data representeres og oversettingen mellom de: **Impedance mismatch**
+🔺Vi har en mismatch dere! Dette trenger vi da et flere millioner kodelinjer langt komplekst rammeverk for å løse! Altså, det _er_ 2017 nå, og vi har bl.a. funnet ut at komponentbaserte Web-rammeverk som forsøker å abstrahere bort HTTP og request/response-flyten var et feilskjær. Det er på tide å innse at dette også gjelder slik abstraksjon av database-kommunikasjon!
 
 🔺
-JPA er noe man bruker litt på autopilot i alle Java-prosjekter.
+Jeg har inntrykk av at JPA er noe man drar inn litt på autopilot i alle Java-applikasjoner.
 
 Men jeg mener, med hånden på hjertet, at 🔺 JPA er noe du bør avstå fra å ta inn i applikasjonen din!
 
@@ -115,7 +89,7 @@ public class Konto {
 
 For meg er dette et skrekkeksempel på et litt sånn misforstått ideal om "single source of truth". Alt skal kunne leses ut fra domeneklassene, men jeg mener at detaljer rundt persistering av domenets tilstand er en separat problemstilling fra forretningslogikken, som er det som hører hjemme i domenemodellen.
 
-JPA lager en temmelig sterk binding mellom databasen og domenemodellen:
+Paradoksalt nok så lager JPA en temmelig sterk binding mellom databasen og domenemodellen:
 🔺
 - annotasjoner: Beskriver hvordan objekttilstand korresponderer til rader og kolonner i databasen + en rekke andre tekniske detaljer
 🔺
@@ -130,7 +104,7 @@ Lazy loading. Disse svære altomfattende entitetsklassene kan ikke få populert 
 
 Så hvilke alternativer har man?
 🔺
-Man kan bruke god gammeldags SQL rett i koden, samt skrive egen kode som oversetter resultater fra databasen til en lean & mean domenemodell. Jeg skal innrømme at JDBC ikke er det mest freshe APIet i JDKen, og har en del gotchas, men her kan jeg anbefale f.eks. Spring JDBC Template som et forenklende API på toppen JDBC. Da har du full kontroll på hva du spør etter, og ikke minst, når ting brekker trenger du ikke å nøste i hvordan et sett med deklarative annotasjoner blir på generisk og magisk vis oversatt til en SQL-spørring som ikke er ment å leses av mennesker. Du får et nært forhold til databasemodellen, vet nøyaktig hvilke spørringer som gjøres, og ikke minst _når_ de gjøres, kan enkelt utnytte databasespesifikk funksjonalitet i spørringer siden det er "ren SQL", og mapping og spørringer eksisterer eksplisitt i koden, er isolert, og enkelt å feilsøke.
+Man kan bruke god gammeldags SQL rett i koden, samt skrive egen kode som oversetter resultater fra databasen til en lean & mean domenemodell. Jeg skal innrømme at JDBC ikke er det mest freshe APIet i JDKen, og har en del gotchas, men her kan jeg anbefale f.eks. Spring JDBC Template som et forenklende API på toppen JDBC. Da har du full kontroll på hva du spør etter, og når ting brekker trenger du ikke å nøste i hvordan et sett med deklarative annotasjoner blir på generisk og magisk vis oversatt til en SQL-spørring som ikke er ment å leses av mennesker. Du får et nært forhold til databasemodellen, vet nøyaktig hvilke spørringer som gjøres, og ikke minst _når_ de gjøres, kan enkelt utnytte databasespesifikk funksjonalitet i spørringer siden det er "ren SQL", og mapping og spørringer eksisterer eksplisitt i koden, er isolert, og enkelt å feilsøke.
 🔺
 Radaren har også et punkt om micro-ORMer under "vurder", som jeg vil anbefale å ta en titt på. Dette tilbyr en mer lettvekts tilnærming til transformasjonen mellom database-tilstand og objekter.
 
