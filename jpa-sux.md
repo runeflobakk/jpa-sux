@@ -55,8 +55,8 @@ Note: Håndsopprekking
 ## Sånn helt enkelt forklart
 
 Note: **Hva** er JPA?
-- OO-data strukturelt ulikt DB-data, resultater fra DB
-- transformere til OO når data leses fra DB
+- data i OO-kode strukturelt ulikt DB-data, resultater fra DB
+- for behandle data: transformere til OO når data leses fra DB
 - transformere tilbake til DB ved lagring
 
 ---
@@ -75,6 +75,8 @@ Note: **Hva** er JPA?
 Note:
 - JPA ligger "i mellom"
 - rammeverk
+- gjør transformasjonen for deg
+- rammeverk man inkluderer
 - slippe å forholde seg til hvordan data repr. i DB
 - kun tenke på data i objektform
 
@@ -86,8 +88,8 @@ Note:
 
 
 Note: Skummel og pompøs techy betegnelse
-- skremme folk fra SQL, håndskrevet oversetting
-- "Vi har en mismatch, dere!"
+- forskjellen i hvordan data representeres og oversettingen mellom de
+- "Vi har en Impedance Mismatch, dere!"
 - flere millioner kodelinjer langt generisk rammeverk
 - 2017, komponentbaserte Web-rammeverk abstraherer HTTP -> feil
 - gjelder også DB-kommunikasjon
@@ -194,8 +196,8 @@ Note: **Annotasjoner:**
 - vanskelig å resonnere ringvirkninger
 - domenemodell bør være endringsvillig!
 - svære entitetsklasser, vokst over tid
-    - subsett av tilstand i ulike kontekster
-    - egentlige grunnen til...
+    - subsett av tilstand i ulike kontekster objektene er i bruk
+    - egentlige grunnen til mekanismen...
 
 ---
 
@@ -233,7 +235,7 @@ Note: **Alternativer**
 - når ting brekker: ingen nøsting i annotasjoner -> genererte spørringer
 - nært forhold til DB-modell
 - vet hvilke og når spørringer gjøres
-- utnytte DaB-spesifikk funksjonalitet
+- utnytte DB-spesifikk funksjonalitet
 - alt eksplisitt i koden, isolert, enkelt å feilsøke
 
 - punkt om Micro-ORMer: "Vurder!". Anbefales!
